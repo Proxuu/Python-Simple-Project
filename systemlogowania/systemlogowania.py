@@ -10,7 +10,7 @@ def rejestracja():
     
     haslo = input("Podaj nowe haslo: ")
 
-    uzytkownicy[login] = {"hasło": haslo, "logowania": 0}
+    uzytkownicy[login] = {"haslo": haslo, "logowania": 0}
     print("Zarejestrowano pomyśllnie")
 
 def logowanie():
@@ -20,10 +20,12 @@ def logowanie():
     if login in uzytkownicy:
         haslo = input("Podaj hasło: ")
 
-        if haslo in uzytkownicy[login]['hasło']:
+        if haslo == uzytkownicy[login]['haslo']:
 
             uzytkownicy[login]["logowania"] += 1
             panel_uzytkownika(login)
+        else:
+            print("haslo jest niepoprawne")
     else:
         print("Taki login nie istnieje! Spróbuj ponownie.")
         return
